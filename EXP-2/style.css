@@ -1,0 +1,131 @@
+/* Default Light Theme */
+:root {
+  --bg-color: #fdfdfd;
+  --text-color: #222831;
+  --sidebar-bg: linear-gradient(135deg, #06b6d4, #3b82f6); /* Cyan → Blue */
+  --card-bg: #ffffff;
+  --accent: #06b6d4; /* Cyan */
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-color: #111827;
+  --text-color: #e5e7eb;
+  --sidebar-bg: linear-gradient(135deg, #0f172a, #1e3a8a); /* Deep Navy → Indigo */
+  --card-bg: #1f2937;
+  --accent: #3b82f6; /* Bright Blue */
+}
+
+/* Base */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  background: var(--sidebar-bg);
+  color: white;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.sidebar nav a {
+  display: block;
+  padding: 0.8rem 1rem;
+  margin: 0.4rem 0;
+  border-radius: 10px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(5px);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+#theme-toggle {
+  font-size: 1.1rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#theme-toggle:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 22px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .dashboard {
+    grid-template-columns: 70px 1fr;
+  }
+  .sidebar .logo,
+  .sidebar nav a {
+    display: none;
+  }
+}
